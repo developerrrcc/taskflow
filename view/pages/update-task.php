@@ -51,7 +51,8 @@
                         <label for="task_name" class="w3-small w3-text-grey">Título</label>
 
                         <input class="w3-input w3-border w3-small w3-margin-bottom" type="text" name="task_name" id="task_name" value="<?php echo $respuesta["titulo"] ?>" placeholder="Ingresar Título">
-
+                        <input type="hidden" name="token" value="<?php echo $respuesta["keyApi"] ?>">
+                        <input type="hidden" name="id" value="<?php echo $respuesta["tareaId"] ?>">
                     </div>
 
                </div>
@@ -62,16 +63,14 @@
 
                         <label for="limit_date" class="w3-small w3-text-grey">Fecha Límite</label>
 
-                        <input class="w3-input w3-border w3-small w3-margin-bottom" id="limit_date" value="<?php echo $respuesta["fecha_limite"] ?>" type="date" name="nombre">
+                        <input class="w3-input w3-border w3-small w3-margin-bottom" id="limit_date" value="<?php echo $respuesta["fecha_limite"] ?>" type="date" name="date_limit">
 
                     </div>
 
                     <div class="w3-col l6">
                         <label for="selPrioridad" class="w3-small w3-text-grey">Prioridad</label>
 
-                        <select name="selPrioridad" class="w3-select w3-border" id="selPrioridad">
-
-                            <option selected disabled><?php echo $respuesta["prioridad"] ?></option>
+                        <select name="selPrioridadUpdate" class="w3-select w3-border" id="selPrioridad" required>
                             <option value="alta">Alta</option>
                             <option value="media">Media</option>
                             <option value="baja">Baja</option>
@@ -85,7 +84,7 @@
 
                     <div class="w3-col l12">
                         <p></p>
-                        <textarea name="descripcion" id="descripcion" class="w3-input w3-border"><?php echo $respuesta["descripcion"] ?></textarea>
+                        <textarea name="descripcionUpdate" id="descripcion" class="w3-input w3-border"><?php echo $respuesta["descripcion"] ?></textarea>
 
                     </div>
 
@@ -103,10 +102,15 @@
 
             </form>
 
+            <?php 
+
+                $update = new Controller_Task();
+                $update -> ctrUpdateTask();
+            
+            ?>
+
         </div>
 
     </section>
 
 </div>
-
-<script src="view/js/task.js"></script>
