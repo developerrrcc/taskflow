@@ -4,7 +4,7 @@
 
         echo '<script>
 
-                window.location = "tareas";
+                window.location = "task";
 
         </script>';
         return false;
@@ -13,7 +13,7 @@
 
     // Validar si no existe route o no es update-task
     if(!isset($_GET["route"]) || $_GET["route"] !== "update-task") {
-        echo '<script>window.location = "incio";</script>';
+        echo '<script>window.location = "task";</script>';
         exit;
     }
 
@@ -26,7 +26,7 @@
 
     // Si no existe ninguna tarea con ese token
     if(!$respuesta) {
-        echo '<script>window.location = "tareas";</script>';
+        echo '<script>window.location = "task";</script>';
         exit;
     }
 

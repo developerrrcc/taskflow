@@ -36,7 +36,7 @@
             if(isset($_GET["route"])) {
 
                 if($_GET["route"] == "inicio" || 
-                   $_GET["route"] == "tareas" ||
+                   $_GET["route"] == "task" ||
                    $_GET["route"] == "new-task" ||
                    $_GET["route"] == "update-task") {
 

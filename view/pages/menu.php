@@ -2,7 +2,7 @@
     <div class="tablink"><i class="fa fa-home"></i></div>
 </a>
 
-<a href="tareas" class="w3-button w3-border w3-mobile w3-section">
+<a href="task" class="w3-button w3-border w3-mobile w3-section">
     <div class="tablink">Tareas <i class="fa-solid fa-list-check"></i></div>
 </a>
 
