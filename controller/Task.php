@@ -85,54 +85,80 @@ class Controller_Task {
 
                             echo '<script>
 
-                                Swal.fire({
-                    icon: "success",
-                    title: "TAREA ACTUALIZADA EXITOSAMENTE",
-                    showClass: {
-                        popup: `
-                        animate__animated
-                        animate__jackInTheBox
-                        animate__faster
-                        `
-                    },
-                    hideClass: {
-                        popup: `
-                        animate__animated
-                        animate__fadeOutDown
-                        animate__faster
-                        `
-                    }
-                }).then((result) => {
-                    if (result.isConfirmed) {
+                                    Swal.fire({
+                                    icon: "success",
+                                    title: "TAREA ACTUALIZADA EXITOSAMENTE",
+                                    showClass: {
+                                        popup: `
+                                        animate__animated
+                                        animate__jackInTheBox
+                                        animate__faster
+                                        `
+                                    },
+                                    hideClass: {
+                                        popup: `
+                                        animate__animated
+                                        animate__fadeOutDown
+                                        animate__faster
+                                        `
+                                    }
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
 
-                        window.location="tareas"
-                    }
-                });
+                                        window.location="tareas"
+                                    }
+                                });
                             
                             </script>';
 
                         } else {
 
-                            echo 'Error';
+                            echo '<script>
+
+                                    Swal.fire({
+                                    icon: "error",
+                                    title: "ERROR AL ACTUALIZAR",
+                                    showClass: {
+                                        popup: `
+                                        animate__animated
+                                        animate__jackInTheBox
+                                        animate__faster
+                                        `
+                                    },
+                                    hideClass: {
+                                        popup: `
+                                        animate__animated
+                                        animate__fadeOutDown
+                                        animate__faster
+                                        `
+                                    }
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+
+                                        window.location="tareas"
+                                    }
+                                });
+                            
+                            </script>';
 
                         }
 
 
                     } else {
 
-                        echo "error";
+                        return false;
 
                     }
 
 
                 } else {
 
-                    echo "error, token invalido";
+                    return false;
 
                 }
 
             } else {
-                echo "error";
+               return false;
             }
 
         }
