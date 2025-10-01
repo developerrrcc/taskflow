@@ -37,70 +37,39 @@
         <b class="w3-text-danger">ELIMINAR TASK</b> 
         <i class="fa fa-trash w3-text-red"></i>
     </h3>
+
+    <p class="w3-center w3-text-grey w3-large">
+        ¿Estás seguro de eliminar ésta tarea?
+        <span>No se Podrá reventir cambios.</span>
+    </p>
     
     <section id="new_task" class="w3-padding">
 
         <div class="w3-content" style="max-width: 500px; margin-top: 8px;" id="new_add_task">
 
-            <form method="post" id="formTask" class="w3-padding-16 w3-round">
+           <form method="post">
 
-               <div class="w3-row-padding">
-                
-                    <div class="w3-col l12">
-
-                        <label for="task_name" class="w3-small w3-text-grey">Título</label>
-
-                        <input class="w3-input w3-border w3-small w3-margin-bottom" type="text" name="task_name" id="task_name" value="<?php echo $respuesta["titulo"] ?>" placeholder="Ingresar Título">
-                        <input type="hidden" name="token" value="<?php echo $respuesta["keyApi"] ?>">
-                        <input type="hidden" name="id" value="<?php echo $respuesta["tareaId"] ?>">
-                    </div>
-
-               </div>
-
-               <div class="w3-row-padding">
+                <div class="w3-row-padding w3-center">
 
                     <div class="w3-col l6">
-
-                        <label for="limit_date" class="w3-small w3-text-grey">Fecha Límite</label>
-
-                        <input class="w3-input w3-border w3-small w3-margin-bottom" id="limit_date" value="<?php echo $respuesta["fecha_limite"] ?>" type="date" name="date_limit">
-
+                        <button type="submit" class="w3-button w3-block w3-danger w3-mobile">ELIMINAR <i class="fa fa-trash"></i></button>
+                        <input type="hidden" name="tokenEliminar" value="<?php echo $respuesta["keyApi"] ?>">
+                        <input type="hidden" name="tkenEliminarId" value="<?php echo $respuesta["tareaId"] ?>">
                     </div>
-
                     <div class="w3-col l6">
-                        <label for="selPrioridad" class="w3-small w3-text-grey">Prioridad</label>
-
-                        <select name="selPrioridadUpdate" class="w3-select w3-border" id="selPrioridad" required>
-                            <option value="alta">Alta</option>
-                            <option value="media">Media</option>
-                            <option value="baja">Baja</option>
-
-                        </select>
+                        <a href="task" class="w3-button w3-dark-grey w3-block w3-mobile">Cancelar <i class="fa fa-times"></i></a>
                     </div>
 
-               </div>
+                </div>
 
-               <div class="w3-row-padding">
+           </form>
 
-                    <div class="w3-col l12">
-                        <p></p>
-                        <textarea name="descripcionUpdate" id="descripcion" class="w3-input w3-border"><?php echo $respuesta["descripcion"] ?></textarea>
+           <?php 
 
-                    </div>
-
-               </div>
-
-               <div class="w3-row-padding">
-
-                    <div class="w3-col l12">
-                        <p>
-                            <input type="submit" class="w3-button w3-card w3-block w3-danger" value="Actualizar Task">
-                        </p>
-                    </div>
-
-               </div>
-
-            </form>
+                $delete = new Controller_Task();
+                $delete -> ctrDeleteTask();
+           
+           ?>
 
         </div>
 

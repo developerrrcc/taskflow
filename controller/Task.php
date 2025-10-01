@@ -105,7 +105,7 @@ class Controller_Task {
                                 }).then((result) => {
                                     if (result.isConfirmed) {
 
-                                        window.location="tareas"
+                                        window.location="task"
                                     }
                                 });
                             
@@ -135,7 +135,7 @@ class Controller_Task {
                                 }).then((result) => {
                                     if (result.isConfirmed) {
 
-                                        window.location="tareas"
+                                        window.location="task"
                                     }
                                 });
                             
@@ -168,5 +168,20 @@ class Controller_Task {
     /**
      * metodo para eliminar
      */
+
+    static public function ctrDeleteTask() {
+
+        if(isset($_POST["tokenEliminar"])) {
+
+            $item = "keyApi";
+            $valor = $_POST["tokenEliminar"];
+            $tabla = "task";
+
+            $selToken = Model_Task::mdlListTask( $tabla,$item, $valor);
+            var_dump($selToken);
+
+        }
+
+    }
 
 }
