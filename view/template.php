@@ -38,7 +38,8 @@
                 if($_GET["route"] == "inicio" || 
                    $_GET["route"] == "task" ||
                    $_GET["route"] == "new-task" ||
-                   $_GET["route"] == "update-task") {
+                   $_GET["route"] == "update-task" ||
+                   $_GET["route"] == "delete-task") {
 
                     include "pages/".$_GET["route"].".php";
 

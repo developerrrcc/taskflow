@@ -94,8 +94,13 @@
                         class="w3-btn w3-tiny w3-border w3-card btnEditarTask">
                             EDITAR <i class="fa fa-edit"></i>
                     </a>
+
                     <button class="w3-btn w3-tiny w3-border w3-card w3-info">VER <i class="fa fa-eye"></i></button>
-                    <button class="w3-btn w3-tiny w3-border w3-card w3-pink">ELIMINAR <i class="fa fa-trash"></i></button>
+
+                    <a 
+                        href="index.php?route=delete-task&token=<?php echo $value["keyApi"]?>" class="w3-btn w3-tiny w3-border w3-card w3-pink">
+                            ELIMINAR <i class="fa fa-trash"></i>
+                    </a>
                 </td>
             </tr>
 
