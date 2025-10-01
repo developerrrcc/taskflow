@@ -82,4 +82,24 @@ class Model_Task {
 
     }
 
+    /**
+     * MÉTODO PARA ELIMINAR TASK
+     */
+
+    static public function mdlDeleteTask($tabla, $datos) {
+
+        $stmt = Conexion::conectar()->prepare(
+            "DELETE FROM $tabla WHERE keyApi = :keyApi"
+        );
+
+        $stmt -> bindParam(":keyApi", $datos, PDO::PARAM_STR);
+
+        if($stmt->execute()) {
+            return "ok";
+        } else {
+            print_r(Conexion::conectar()->errorInfo());
+        }
+
+    }
+
 }
