@@ -34,7 +34,7 @@
 
 <div class="w3-content">
     <h3 class="w3-center animate__animated animate__fadeInDown">
-        <b class="w3-text-red">ELIMINAR TASK</b> 
+        <b class="w3-text-danger">ELIMINAR TASK</b> 
         <i class="fa fa-trash w3-text-red"></i>
     </h3>
     
