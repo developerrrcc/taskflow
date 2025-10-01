@@ -165,4 +165,8 @@ class Controller_Task {
 
     }
 
+    /**
+     * metodo para eliminar
+     */
+
 }
