@@ -221,4 +221,33 @@ class Controller_Task
             }
         }
     }
+
+    /**
+     * Cambio de estado
+     */
+
+    static public function ctrChangeStatus($datos) {
+
+
+        if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ]+$/', $datos["estado"])) {
+            
+            $tabla = "task";
+
+            $datos = array(
+                "estado" => $datos["estado"],
+                "keyApi" => $datos["keyApi"]
+            );
+
+            $respuesta = Model_Task::mdlChangeStatus($tabla, $datos);
+
+            return $respuesta;
+
+        } else {
+
+            $respuesta = "error";
+            return $respuesta;
+
+        }
+
+    }
 }

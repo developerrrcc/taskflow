@@ -59,7 +59,7 @@
 
             <?php foreach ($respuesta as $key => $value): ?>
 
-                <tr data-estado="<?php echo $value["estado"] ?>" data-prioridad="<?php echo $value["prioridad"] ?>">
+                <tr data-id="<?php echo $value["keyApi"] ?>" data-estado="<?php echo $value["estado"] ?>" data-prioridad="<?php echo $value["prioridad"] ?>">
 
                     <td><?php echo ($key + 1) ?></td>
 
@@ -73,10 +73,27 @@
                     <td style="width: 150px;">
                         <select class="w3-select w3-border estado" onchange="cambiarEstado(this)">
                             <option value="pendiente" selected>Pendiente</option>
-                            <option value="en_progreso">En progreso</option>
+                            <option value="progreso">En progreso</option>
                             <option value="completada">Completada</option>
                         </select>
-                        <span class="w3-tag w3-pink w3-section estado-tag">Pendiente</span>
+
+                        <?php 
+
+                            if($value["estado"] == "Pendiente") {
+
+                                echo '<span class="w3-tag w3-pink w3-section estado-tag">Pendiente</span>';
+
+                            } else if($value["estado"] == "progreso") {
+
+                                echo '<span class="w3-tag w3-green w3-section estado-tag">En Progreso</span>';
+
+                            } else {
+
+                                 echo '<span class="w3-tag w3-info w3-section estado-tag">Completada</span>';
+
+                            }
+                        
+                        ?>
                     </td>
                     <td>
                         <a href="index.php?route=update-task&token=<?php echo $value["keyApi"] ?>"
@@ -105,25 +122,51 @@
 </div>
 
 <script>
-    function cambiarEstado(select) {
+    async function cambiarEstado(select) {
         let fila = select.closest("tr");
-        let tag = select.parentElement.querySelector(".estado-tag");
+        let tag = fila.querySelector(".estado-tag"); // mejor, busca en la fila
         let estado = select.value;
+        let id = fila.getAttribute("data-id");
 
-        // actualizar atributo data-estado
+        const datos = new FormData();
+        datos.append('estado', estado);
+        datos.append('keyApi', id)
+
+        try {
+            const URL ='services/task.php';
+            const respuesta = await fetch(URL, {
+                method: 'POST',
+                body: datos
+            });
+
+            const resultado = await respuesta.json();
+
+            if(resultado === 'ok') {
+
+                // actualizar atributo data-estado
         fila.setAttribute("data-estado", estado);
 
         if (estado === "pendiente") {
             tag.innerHTML = "Pendiente";
             tag.className = "w3-tag w3-pink w3-section estado-tag";
-        } else if (estado === "en_progreso") {
+        } else if (estado === "progreso") {
             tag.innerHTML = "En progreso";
             tag.className = "w3-tag w3-green w3-section estado-tag";
         } else if (estado === "completada") {
             tag.innerHTML = "Completada";
             tag.className = "w3-tag w3-info w3-section estado-tag";
         }
+
+            }
+            
+            
+        } catch (error) {
+            console.log(error);
+            
+        }
+        
     }
+    
 
     function filtrarTareas() {
         let texto = document.getElementById("searchInput").value.toLowerCase();

@@ -25,6 +25,18 @@ class API_Task {
 
     }
 
+    public $estado;
+    public $keyApi;
+
+    public function apiChangeStatus() {
+
+        $datos = array("estado" => $this->estado, "keyApi" => $this->keyApi);
+        
+        $respuesta = Controller_Task::ctrChangeStatus($datos);
+
+        echo json_encode($respuesta);
+    }
+
 }
 
 if(isset($_POST["titulo"])) {
@@ -34,4 +46,11 @@ if(isset($_POST["titulo"])) {
     $save -> prioridad = $_POST["prioridad"];
     $save -> descripcion = $_POST["descripcion"];
     $save -> apiSaveTask();
+}
+
+if(isset($_POST["estado"])) {
+    $change = new API_Task();
+    $change -> estado = $_POST["estado"];
+    $change -> keyApi = $_POST["keyApi"];
+    $change -> apiChangeStatus();
 }

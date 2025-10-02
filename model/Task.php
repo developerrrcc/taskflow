@@ -102,4 +102,25 @@ class Model_Task {
 
     }
 
+    static public function mdlChangeStatus($tabla, $datos) {
+
+        $stmt = Conexion::conectar()->prepare(
+            "UPDATE $tabla SET estado = :estado WHERE keyApi = :keyApi"
+        );
+
+        $stmt -> bindParam(":estado", $datos["estado"],PDO::PARAM_STR);
+        $stmt -> bindParam(":keyApi", $datos["keyApi"],PDO::PARAM_STR);
+
+        if($stmt->execute()) {
+
+            return "ok";
+
+        } else {
+
+            print_r(Conexion::conectar()->errorInfo());
+
+        }
+
+    }
+
 }
