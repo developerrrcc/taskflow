@@ -87,15 +87,3 @@
     </div>
 
 </div>
-
-<?php 
-
-    if(!$pendientes) {
-
-        echo '<div class="w3-row-padding w3-margin-bottom w3-light-grey w3-padding-16">
-            <h3 class="w3-center w3-text-grey">Felicidades no tienes tareas Pendientes</h3>
-        </div>';
-
-    }
-
-?>

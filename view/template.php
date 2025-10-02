@@ -41,7 +41,8 @@
                    $_GET["route"] == "new-task" ||
                    $_GET["route"] == "update-task" ||
                    $_GET["route"] == "delete-task" ||
-                   $_GET["route"] == "view-task") {
+                   $_GET["route"] == "view-task" ||
+                   $_GET["route"] == "users") {
 
                     include "pages/".$_GET["route"].".php";
 

@@ -10,7 +10,7 @@
     <div class="tablink">Entrada <i class="fa fa-envelope"></i></div>
 </a>
 
-<a href="usuarios" class="w3-button w3-border w3-mobile w3-section">
+<a href="users" class="w3-button w3-border w3-mobile w3-section">
     <div class="tablink">Usuarios <i class="fa-solid fa-users"></i>
     </div>
 </a>
