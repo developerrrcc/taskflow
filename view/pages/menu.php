@@ -1,4 +1,4 @@
-<a href="inicio" class="w3-button w3-dark-grey w3-border w3-mobile w3-section">
+<a href="welcome" class="w3-button w3-dark-grey w3-border w3-mobile w3-section">
     <div class="tablink"><i class="fa fa-home"></i></div>
 </a>
 

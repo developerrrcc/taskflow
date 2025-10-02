@@ -36,7 +36,7 @@
         
             if(isset($_GET["route"])) {
 
-                if($_GET["route"] == "inicio" || 
+                if($_GET["route"] == "welcome" || 
                    $_GET["route"] == "task" ||
                    $_GET["route"] == "new-task" ||
                    $_GET["route"] == "update-task" ||
@@ -47,12 +47,13 @@
                     include "pages/".$_GET["route"].".php";
 
                 } else {
+                    
                     include "pages/404.php";
                 }
 
             } else {
 
-                include "pages/inicio.php";
+                include "pages/welcome.php";
 
             }
 

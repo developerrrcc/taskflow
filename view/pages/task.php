@@ -24,6 +24,9 @@
         
 
         <div class="w3-col l3 m3 s6">
+
+            <a href="multitasking" class="w3-button w3-green w3-border w3-section w3-mobile w3-small ">MUL.T <i class="fas fa-code-branch"></i></a>
+            
             <a href="new-task" class="w3-button w3-dark-grey w3-right w3-border w3-section w3-mobile w3-small ">
                 REGIS. TASK <i class="fa fa-add"></i>
             </a>
