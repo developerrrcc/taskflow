@@ -176,7 +176,7 @@ class Controller_Task
                     $tabla = "task";
 
                     $datos = $_POST["tokenEliminar"];
-
+                    
                     $respuesta = Model_Task::mdlDeleteTask($tabla, $datos);
 
                     if($respuesta == "ok") {
