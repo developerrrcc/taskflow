@@ -4,7 +4,7 @@
             <input id="searchInput" class="w3-input w3-section w3-border w3-small" type="text" placeholder="Buscar tarea..." oninput="filtrarTareas()">
         </div>
 
-        <div class="w3-col m3 l3 s6">
+        <div class="w3-col m2 l3 s6">
             <select id="filtroEstado" class="w3-select w3-section w3-border w3-small" onchange="filtrarTareas()">
                 <option value="">Estado</option>
                 <option value="Pendiente">Pendiente</option>
@@ -21,12 +21,13 @@
                 <option value="baja">Baja</option>
             </select>
         </div>
+        
 
         <div class="w3-col l3 m3 s6">
-            <a href="new-task" class="w3-btn w3-round w3-black w3-section w3-mobile w3-small w3-right animate__heartBeat">
-                Nueva Tarea
-                <i class="fa fa-add"></i>
+            <a href="new-task" class="w3-button w3-black w3-right w3-border w3-section w3-mobile w3-small ">
+                REGIS. TASK <i class="fa fa-add"></i>
             </a>
+
         </div>
 
     </div>
@@ -66,19 +67,7 @@
 
                     <td><?php echo $value["fecha_limite"] ?></td>
 
-                    <?php if ($value["prioridad"] == "alta"): ?>
-
-                        <td><span class="w3-tag w3-danger">Alta</span></td>
-
-                    <?php elseif ($value["prioridad"] == "media"): ?>
-
-                        <td><span class="w3-tag w3-pink">Media</span></td>
-
-                    <?php else: ?>
-
-                        <td><span class="w3-tag w3-blue">Baja</span></td>
-
-                    <?php endif ?>
+                    <td><span class=""><?php echo strtoupper($value["prioridad"]) ?></span></td>
 
 
                     <td style="width: 150px;">
@@ -103,7 +92,7 @@
                         </button>
 
                         <a
-                            href="index.php?route=delete-task&token=<?php echo $value["keyApi"] ?>" class="w3-btn w3-tiny w3-border w3-card w3-pink">
+                            href="index.php?route=delete-task&token=<?php echo $value["keyApi"] ?>" class="w3-btn w3-tiny w3-border w3-card w3-danger">
                             ELIMINAR <i class="fa fa-trash"></i>
                         </a>
                     </td>
