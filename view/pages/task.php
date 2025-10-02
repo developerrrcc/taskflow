@@ -72,28 +72,17 @@
 
                     <td style="width: 150px;">
                         <select class="w3-select w3-border estado" onchange="cambiarEstado(this)">
-                            <option value="pendiente" selected>Pendiente</option>
+                            <option selected disabled>Selecciona...</option>
+                            <option value="pendiente">Pendiente</option>
                             <option value="progreso">En progreso</option>
                             <option value="completada">Completada</option>
                         </select>
 
-                        <?php 
-
-                            if($value["estado"] == "Pendiente") {
-
-                                echo '<span class="w3-tag w3-pink w3-section estado-tag">Pendiente</span>';
-
-                            } else if($value["estado"] == "progreso") {
-
-                                echo '<span class="w3-tag w3-green w3-section estado-tag">En Progreso</span>';
-
-                            } else {
-
-                                 echo '<span class="w3-tag w3-info w3-section estado-tag">Completada</span>';
-
-                            }
-                        
-                        ?>
+                        <span class="w3-tag 
+                            <?= $value["estado"] == "pendiente" ? "w3-pink" : ($value["estado"] == "progreso" ? "w3-green" : "w3-info") ?> 
+                            w3-section estado-tag">
+                            <?= ucfirst($value["estado"]) ?>
+                        </span>
                     </td>
                     <td>
                         <a href="index.php?route=update-task&token=<?php echo $value["keyApi"] ?>"
