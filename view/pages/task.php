@@ -24,7 +24,7 @@
         
 
         <div class="w3-col l3 m3 s6">
-            <a href="new-task" class="w3-button w3-black w3-right w3-border w3-section w3-mobile w3-small ">
+            <a href="new-task" class="w3-button w3-dark-grey w3-right w3-border w3-section w3-mobile w3-small ">
                 REGIS. TASK <i class="fa fa-add"></i>
             </a>
 
@@ -84,12 +84,11 @@
                             EDITAR <i class="fa fa-edit"></i>
                         </a>
 
-                        <button
-                            class="w3-btn w3-tiny w3-border w3-card w3-info btnViewTask"
-                            data-id="<?php echo $value["keyApi"] ?>"
-                            onclick="document.getElementById('id01').style.display='block'">
+                        <a href="index.php?route=view-task&token=<?php echo $value["keyApi"] ?>"
+                            class="w3-btn w3-tiny w3-border w3-card w3-info"
+                            data-id="<?php echo $value["keyApi"] ?>">
                             VER <i class="fa fa-eye"></i>
-                        </button>
+                        </a>
 
                         <a
                             href="index.php?route=delete-task&token=<?php echo $value["keyApi"] ?>" class="w3-btn w3-tiny w3-border w3-card w3-danger">
@@ -103,81 +102,6 @@
         </tbody>
 
     </table>
-</div>
-
-<!-- RSVP modal -->
-<div id="id01" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="padding:16px;max-width:600px">
-        <span class="w3-button w3-tiny w3-right" onclick="document.getElementById('id01').style.display='none'"><i class="fa fa-times"></i></span>
-        <div class="w3-container w3-white w3-center">
-            <h2 class="w3-text-grey">
-                DETALLES DE TAREA 
-                <i class="fa-solid fa-list-check"></i>
-            </h2>
-            <!-- CONTENIDO (para insertar en el modal-body) -->
-            <div class="w3-container w3-padding">
-
-                <table class="w3-table-all w3-small" style="margin-bottom:12px">
-                    <tbody>
-                        <tr>
-                            <td style="width:35%"><strong>ID</strong></td>
-                            <td>#12345</td>
-                        </tr>
-
-                        <tr>
-                            <td><strong>Estado</strong></td>
-                            <td><span class="w3-tag w3-round">Completada</span></td>
-                        </tr>
-
-                        <tr>
-                            <td><strong>Prioridad</strong></td>
-                            <td><span class="w3-tag w3-round">Alta</span></td>
-                        </tr>
-
-                        <tr>
-                            <td><strong>Fecha creación</strong></td>
-                            <td>01/10/2025 14:20</td>
-                        </tr>
-
-                        <tr>
-                            <td><strong>Fecha límite</strong></td>
-                            <td>15/10/2025</td>
-                        </tr>
-
-                        <tr>
-                            <td><strong>Asignado a</strong></td>
-                            <td>Juan Pérez &lt;juan@ejemplo.com&gt;</td>
-                        </tr>
-
-                        <tr>
-                            <td><strong>Tags</strong></td>
-                            <td>
-                                <span class="w3-tag w3-light-grey">servidor</span>
-                                <span class="w3-tag w3-light-grey">urgente</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><strong>Título</strong></td>
-                            <td>
-                                Revisar correos pendientes de la empresa
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><strong>Descripción</strong></td>
-                            <td>
-                                <div class="w3-panel w3-pale-grey w3-round w3-padding-small" style="margin:0">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aquí va la descripción completa de la tarea: pasos, notas y enlaces útiles.
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
-    </div>
 </div>
 
 <script>
