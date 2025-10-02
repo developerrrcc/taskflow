@@ -95,7 +95,13 @@
                             EDITAR <i class="fa fa-edit"></i>
                     </a>
 
-                    <button class="w3-btn w3-tiny w3-border w3-card w3-info">VER <i class="fa fa-eye"></i></button>
+                    <button 
+                        class="w3-btn w3-tiny w3-border w3-card w3-info"
+                        data-id="<?php echo $value["keyApi"] ?>"
+                        onclick="document.getElementById('id01').style.display='block'"
+                        >
+                            VER <i class="fa fa-eye"></i>
+                    </button>
 
                     <a 
                         href="index.php?route=delete-task&token=<?php echo $value["keyApi"]?>" class="w3-btn w3-tiny w3-border w3-card w3-pink">
@@ -109,6 +115,28 @@
         </tbody>
 
     </table>
+</div>
+
+<!-- RSVP modal -->
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="padding:32px;max-width:600px">
+    <div class="w3-container w3-white w3-center">
+      <h2 class="w3-wide">DETALLES DE TAREA <i class="fa-solid fa-list-check"></i></h2>
+      <hr>
+      <form>
+        
+      </form>
+      <p><i>Sincerely, John & Jane</i></p>
+      <div class="w3-row">
+        <div class="w3-half">
+          <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-block w3-green">Going</button>
+        </div>
+        <div class="w3-half">
+          <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-block w3-red">Can't come</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
