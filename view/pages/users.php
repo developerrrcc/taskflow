@@ -23,8 +23,7 @@ function generarClave()
             </div>
 
             <div class="w3-col m3 l2 s6">
-                <input id="pass_temp" class="w3-input w3-section w3-border w3-small" type="text" value="<?php $clave = generarClave();
-                echo $clave; ?>" readonly>
+                <input id="pass_temp" class="w3-input w3-section w3-border w3-small" type="text" readonly>
             </div>
 
 
@@ -55,6 +54,10 @@ function generarClave()
                 <th>Fecha Registro</th>
             </tr>
         </thead>
+
+        <tbody>
+            
+        </tbody>
 
     </table>
 </div>
