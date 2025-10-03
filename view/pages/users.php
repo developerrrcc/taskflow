@@ -1,13 +1,4 @@
-<?php
 
-function generarClave()
-{
-    $base = "Peru";
-    $numero = rand(1000, 9999);
-    return $base . $numero;
-}
-
-?>
 <div class="w3-section">
 
     <form id="new_user" method="post">
