@@ -15,11 +15,11 @@ function generarClave()
 
             <div class="w3-col l4 m3 s12">
 
-                <input id="searchInput" class="w3-input w3-section w3-border w3-small" type="text" placeholder="Nombre Completo">
+                <input id="nameFull" class="w3-input w3-section w3-border w3-small" type="text" placeholder="Nombre Completo">
             </div>
 
             <div class="w3-col m2 l4 s6">
-                <input id="email" class="w3-input w3-section w3-border w3-small" type="email" placeholder="Email">
+                <input id="emailUser" class="w3-input w3-section w3-border w3-small" type="email" placeholder="Email">
             </div>
 
             <div class="w3-col m3 l2 s6">
@@ -42,7 +42,7 @@ function generarClave()
 </div>
 
 <div class="w3-container">
-    <table id="tablaTareas" class="w3-table-all w3-small">
+    <table id="tableUser" class="w3-table-all w3-small">
 
         <thead>
             <tr class="">
@@ -58,3 +58,5 @@ function generarClave()
 
     </table>
 </div>
+
+<script src="view/js/users.js"></script>
