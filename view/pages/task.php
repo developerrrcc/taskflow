@@ -36,7 +36,7 @@
     </div>
 </div>
 <div class="w3-container">
-    <table id="tablaTareas" class="w3-table-all w3-small">
+    <table id="tablaTareas" class="w3-table-all w3-card w3-small">
 
         <thead>
             <tr class="">
