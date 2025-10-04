@@ -33,7 +33,7 @@
 </div>
 
 <!-- Contenido -->
-<div class="w3-container w3-padding">
+<div class="w3-container w3-section w3-padding">
 
   <!-- PERFIL -->
   <div id="perfil" class="tab-content">

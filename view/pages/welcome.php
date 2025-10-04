@@ -80,7 +80,7 @@
                 </h3>
             </div>
             <div class="w3-clear"></div>
-            <a href="" style="text-decoration: none;">
+            <a href="my-account" style="text-decoration: none;">
                 <h4>Mi Cuenta</h4>
             </a>
         </div>
