@@ -24,45 +24,57 @@
         include "pages/header.php";
     ?>
 
-    <section class="w3-container w3-content w3-padding-32">
+    <?php if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"): ?>
 
-        <?php 
+        <section class="w3-container w3-content w3-border w3-padding-32">
 
-            include "pages/menu.php";
-        
-        ?>
+            <?php 
 
-        <hr>
+                include "pages/menu.php";
+            
+            ?>
 
-        <?php
-        
-            if(isset($_GET["route"])) {
+            <hr>
 
-                if($_GET["route"] == "welcome" || 
-                   $_GET["route"] == "task" ||
-                   $_GET["route"] == "new-task" ||
-                   $_GET["route"] == "update-task" ||
-                   $_GET["route"] == "delete-task" ||
-                   $_GET["route"] == "view-task" ||
-                   $_GET["route"] == "users") {
+            <?php
+            
+                if(isset($_GET["route"])) {
 
-                    include "pages/".$_GET["route"].".php";
+                    if($_GET["route"] == "welcome" || 
+                    $_GET["route"] == "task" ||
+                    $_GET["route"] == "new-task" ||
+                    $_GET["route"] == "update-task" ||
+                    $_GET["route"] == "delete-task" ||
+                    $_GET["route"] == "view-task" ||
+                    $_GET["route"] == "users") {
+
+                        include "pages/".$_GET["route"].".php";
+
+                    } else {
+                        
+                        include "pages/404.php";
+                    }
 
                 } else {
-                    
-                    include "pages/404.php";
+
+                    include "pages/welcome.php";
+
                 }
 
-            } else {
+            
+            ?>
 
-                include "pages/welcome.php";
+        </section>
 
-            }
+        <?php else: ?>
 
-        
-        ?>
+            <?php
+            
+                include "pages/login.php";
+                
+            ?>
 
-    </section>
+    <?php endif ?>
 
 
     <?php 
