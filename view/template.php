@@ -54,7 +54,8 @@
                         $_GET["route"] == "view-task" ||
                         $_GET["route"] == "users" ||
                         $_GET["route"] == "go-out" ||
-                        $_GET["route"] == "my-account") {
+                        $_GET["route"] == "my-account" ||
+                        $_GET["route"] == "configuration") {
 
                         include "pages/".$_GET["route"].".php";
 

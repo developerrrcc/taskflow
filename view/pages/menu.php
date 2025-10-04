@@ -16,7 +16,7 @@
     </div>
 </a>
 
-<a href="configuracion" class="w3-button w3-border w3-mobile w3-section">
+<a href="configuration" class="w3-button w3-border w3-mobile w3-section">
     <div class="tablink">Configuración <i class="fa-solid fa-gear"></i></div>
 </a>
 
