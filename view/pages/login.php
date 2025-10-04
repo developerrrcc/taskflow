@@ -1,4 +1,4 @@
-<div class="w3-content w3-card-4 w3-padding-16 w3-round-xlarge" style="margin-top: 64px; max-width: 450px;">
+<div class="w3-content w3-card-4 w3-padding-64 w3-round-xlarge" style="margin-top: 96px; max-width: 350px;">
     <h3 class="w3-center w3-section">
         <b>INICIO DE SESIÓN</b> 
         <i class="fa-solid fa-lock"></i>
