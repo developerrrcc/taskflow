@@ -34,12 +34,12 @@
 
 <div class="w3-content">
     <h3 class="w3-center animate__animated animate__fadeInDown">
-        <b class="w3-text-danger">DETALLE TASK</b> 
-        <i class="fas fa-info-circle w3-text-red"></i>
+        <b class="w3-text-blue">DETALLE TASK</b> 
+        <i class="fas fa-info-circle w3-text-blue"></i>
     </h3>
 
-    <p class="w3-center w3-text-grey w3-large">
-        Detalle de : <span><?php echo $respuesta["titulo"] ?></span>
+    <p class="w3-left w3-text-grey w3-large">
+        Detalle de : <span><?php echo strtoupper($respuesta["titulo"]) ?></span>
     </p>
 
     <section class="w3-section">
@@ -79,7 +79,7 @@
                         <a href="task" class="w3-button w3-block w3-danger w3-mobile">REGRESAR <i class="fas fa-arrow-left"></i></a>
                     </div>
                     <div class="w3-col l6">
-                        <a href="task" class="w3-button w3-dark-grey w3-block w3-mobile">ENVIAR TASK <i class="fas fa-paper-plane"></i></a>
+                        <a href="task" class="w3-button w3-blue w3-block w3-mobile">ENVIAR TASK <i class="fas fa-paper-plane"></i></a>
                     </div>
 
                 </div>

@@ -52,12 +52,12 @@
                 <div class="w3-row-padding w3-center">
 
                     <div class="w3-col l6">
-                        <button type="submit" class="w3-button w3-block w3-danger w3-mobile">ELIMINAR <i class="fa fa-trash"></i></button>
+                        <button type="submit" class="w3-button w3-block w3-blue w3-mobile">ELIMINAR <i class="fa fa-trash"></i></button>
                         <input type="hidden" name="tokenEliminar" value="<?php echo $respuesta["keyApi"] ?>">
                         <input type="hidden" name="tkenEliminarId" value="<?php echo $respuesta["tareaId"] ?>">
                     </div>
                     <div class="w3-col l6">
-                        <a href="task" class="w3-button w3-dark-grey w3-block w3-mobile">Cancelar <i class="fa fa-times"></i></a>
+                        <a href="task" class="w3-button w3-danger w3-block w3-mobile">Cancelar <i class="fa fa-times"></i></a>
                     </div>
 
                 </div>

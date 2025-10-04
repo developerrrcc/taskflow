@@ -63,7 +63,7 @@
 
                     <div class="w3-col l12">
                         <p>
-                            <input type="submit" class="w3-button w3-card w3-block w3-danger" value="Registrar Task">
+                            <input type="submit" class="w3-button w3-card w3-block w3-blue" value="Registrar Task">
                         </p>
                     </div>
 

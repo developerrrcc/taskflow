@@ -94,7 +94,7 @@
 
                     <div class="w3-col l12">
                         <p>
-                            <input type="submit" class="w3-button w3-card w3-block w3-danger" value="Actualizar Task">
+                            <input type="submit" class="w3-button w3-card w3-block w3-blue" value="Actualizar Task">
                         </p>
                     </div>
 

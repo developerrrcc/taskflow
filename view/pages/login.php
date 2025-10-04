@@ -35,7 +35,7 @@
                <div class="w3-row-padding">
                 
                     <div class="w3-col l12">
-                        <input type="submit" class="w3-button w3-block w3-dark-grey" value="INGRESAR">
+                        <input type="submit" class="w3-button w3-block w3-blue" value="INGRESAR">
                     </div>
 
                </div>
