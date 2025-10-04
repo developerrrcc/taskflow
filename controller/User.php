@@ -137,4 +137,105 @@ class Controller_User {
     /**
      * Login
      */
+
+    static public function ctrSingIn() {
+
+       if(isset($_POST["email_user"])) {
+
+        if(preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["email_user"])) {
+
+            
+            $tabla = "users";
+
+            $encriptar = crypt($_POST["pass_user"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+            $item = "email";
+
+            $valor = $_POST["email_user"];
+
+            $respuesta = Model_User::mdlListUser($tabla, $item, $valor);
+
+            if(is_array($respuesta)) {
+
+                /**Validar */
+
+                if($respuesta["email"] == $_POST["email_user"] && $respuesta["password"] == $encriptar) {
+
+                    /*==================================================================
+                    =            comprobamos que los usuarios estén activos            =
+                    ==================================================================*/
+
+                    if($respuesta["estado"] == 1) {
+
+                        /*==================================================
+                        =            le damos acceso al sistema            =
+                        ==================================================*/
+                        
+                        $_SESSION["iniciarSesion"] = "ok";
+                        $_SESSION["id"] = $respuesta["id"];
+                        $_SESSION["nombres"] = $respuesta["nombres"];
+                        $_SESSION["email"] = $respuesta["email"];
+                        $_SESSION["first_login"] = $respuesta["first_login"];
+
+                        /*==================================================================
+                        =            Registrar fecha para saber el último login            =
+                        ==================================================================*/
+                        
+                        date_default_timezone_set('America/Lima');
+
+                        $fecha = date('Y-m-d');
+                        $hora = date('H:i:s');
+
+                        $fechaActual = $fecha.' '.$hora;
+
+
+                        $item1 = "fecha_ingreso";
+                        $valor1 = $fechaActual;
+                        $item2 = "id";
+                        $valor2 = $respuesta["id"];
+
+                        $ultimoLogin = Model_User::mdlUpdateUser($tabla, $item1, $valor1, $item2, $valor2);
+
+                        if($ultimoLogin == "ok") {
+
+                            echo '<script>
+
+                                    window.location = "welcome";
+
+                            </script>';
+
+                        }
+
+                    } else {
+
+                        echo '<div class="w3-panel w3-border-left w3-pale-red w3-border-red">
+                            <p>Hubo un error, tu cuenta esta inactiva en el sistema.</p>
+                        </div>';
+
+                    }
+
+                } else {
+
+                    echo '<div class="w3-panel w3-border-left w3-pale-red w3-border-red">
+                            <p>Hubo un error, tus datos son incorrectos.</p>
+                        </div>';
+
+                }
+
+            } else {
+                echo '<div class="w3-panel w3-border-left w3-pale-red w3-border-red">
+                            <p>Hubo un error.</p>
+                        </div>';
+            }
+
+
+        } else {
+            echo '<div class="w3-panel w3-border-left w3-pale-red w3-border-red">
+                <p>Eror en el registro.</p>
+            </div>';
+        }
+
+       }
+
+    }
 }

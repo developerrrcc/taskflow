@@ -1,3 +1,8 @@
+<?php 
+
+    session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,13 +25,14 @@
 
 <body class="w3-small">
 
+    <?php if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"): ?>
     <?php 
         include "pages/header.php";
     ?>
 
-    <?php if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"): ?>
 
         <section class="w3-container w3-content w3-border w3-padding-32">
+            
 
             <?php 
 
@@ -41,12 +47,14 @@
                 if(isset($_GET["route"])) {
 
                     if($_GET["route"] == "welcome" || 
-                    $_GET["route"] == "task" ||
-                    $_GET["route"] == "new-task" ||
-                    $_GET["route"] == "update-task" ||
-                    $_GET["route"] == "delete-task" ||
-                    $_GET["route"] == "view-task" ||
-                    $_GET["route"] == "users") {
+                        $_GET["route"] == "task" ||
+                        $_GET["route"] == "new-task" ||
+                        $_GET["route"] == "update-task" ||
+                        $_GET["route"] == "delete-task" ||
+                        $_GET["route"] == "view-task" ||
+                        $_GET["route"] == "users" ||
+                        $_GET["route"] == "go-out" ||
+                        $_GET["route"] == "my-account") {
 
                         include "pages/".$_GET["route"].".php";
 

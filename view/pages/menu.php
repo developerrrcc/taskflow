@@ -1,3 +1,4 @@
+
 <a href="welcome" class="w3-button w3-dark-grey w3-border w3-mobile w3-section">
     <div class="tablink"><i class="fa fa-home"></i></div>
 </a>
@@ -19,7 +20,7 @@
     <div class="tablink">Configuración <i class="fa-solid fa-gear"></i></div>
 </a>
 
-<a href="salir" class="w3-button w3-border w3-mobile w3-section">
+<a href="go-out" class="w3-button w3-border w3-mobile w3-section">
     <div class="tablink">Salir <i class="fa-solid fa-right-from-bracket"></i>
     </div>
 </a>

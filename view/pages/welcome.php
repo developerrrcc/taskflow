@@ -87,3 +87,25 @@
     </div>
 
 </div>
+
+<?php 
+
+    $item = "id";
+    $valor = $_SESSION["id"];
+    $respuesta = Controller_User::ctrListUser($item, $valor);
+    
+    if($respuesta["first_login"] == 0) {
+
+        echo '<div class="w3-panel w3-border-left w3-pale-red w3-border-red w3-padding-16">
+            <div class="w3-container">
+                <i class="w3-left">
+                    <h4><i class="fa-solid fa-triangle-exclamation w3-text-red"></i> Cambio de clave requerido</h4>
+                    <p>Tu cuenta está usando una clave temporal. <b>Cámbiala inmediatamente</b> para continuar usando el sistema.</p>
+                    <a href="my-account" class="w3-button w3-danger">Cambiar ahora</a>
+                </i>
+            </div>
+        </div>';
+    }
+
+
+?>

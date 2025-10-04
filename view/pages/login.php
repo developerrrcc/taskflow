@@ -16,7 +16,7 @@
 
                         <label for="task_name" class="w3-small w3-text-grey">TU Email</label>
 
-                        <input class="w3-input w3-border w3-small w3-margin-bottom" type="email" name="email_user" id="email_user" value="" placeholder="Ingresar Email">
+                        <input class="w3-input w3-border w3-small w3-margin-bottom" type="email" name="email_user" id="email_user" placeholder="Ingresar Email" required>
                     </div>
 
                </div>
@@ -27,7 +27,7 @@
 
                         <label for="task_name" class="w3-small w3-text-grey">Tu Password</label>
 
-                        <input class="w3-input w3-border w3-small w3-margin-bottom" type="email" name="email_user" id="email_user" value="" placeholder="Ingresar Email">
+                        <input class="w3-input w3-border w3-small w3-margin-bottom" type="password" name="pass_user" id="pass_user" value="" placeholder="Ingresar Email" required>
                     </div>
 
                </div>
