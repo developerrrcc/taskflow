@@ -35,8 +35,8 @@
       <h3 class="w3-border-bottom w3-padding-8"><i class="fa-solid fa-id-card"></i> Información del Usuario</h3>
       <p><b>Nombre:</b> <?php echo $_SESSION["nombres"] ?></p>
       <p><b>Correo:</b> <?php echo $_SESSION["email"] ?></p>
-      <p><b>Rol:</b> <?php echo $_SESSION["rol"] ?></p>
-      <p><b>Fecha de registro:</b> 2025-09-01</p>
+      <p class="w3-tag w3-green"><b>Rol:</b> <?php echo $_SESSION["rol"] ?></p>
+      <p><b>Fecha de registro:</b> <?php echo $_SESSION["fecha_registro"] ?></p>
     </div>
   </div>
 
@@ -89,8 +89,8 @@
  Última actividad</h3>
       <ul class="w3-ul">
         <li><i class="fa-solid fa-check text-green"></i> Completó la tarea #12 (2025-10-01)</li>
-        <li><i class="fa-solid fa-key"></i> Inició sesión (2025-10-02)</li>
-        <li><i class="fa-solid fa-pen"></i> Editó perfil (2025-09-25)</li>
+        <li><i class="fa-solid fa-key"></i> Último Inició sesión <?php echo $_SESSION["fecha_ingreso"] ?></li>
+        <li><i class="fa-solid fa-pen"></i> ¿Editó perfil? <span class="w3-tag w3-blue">SI</span></li>
       </ul>
     </div>
   </div>

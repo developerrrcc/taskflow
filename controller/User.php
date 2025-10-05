@@ -177,6 +177,8 @@ class Controller_User {
                         $_SESSION["email"] = $respuesta["email"];
                         $_SESSION["first_login"] = $respuesta["first_login"];
                         $_SESSION["rol"] = $respuesta["rol"];
+                        $_SESSION["fecha_registro"] = $respuesta["fecha_registro"];
+                        $_SESSION["fecha_ingreso"] = $respuesta["fecha_ingreso"];
 
                         /*==================================================================
                         =            Registrar fecha para saber el último login            =
