@@ -176,6 +176,7 @@ class Controller_User {
                         $_SESSION["nombres"] = $respuesta["nombres"];
                         $_SESSION["email"] = $respuesta["email"];
                         $_SESSION["first_login"] = $respuesta["first_login"];
+                        $_SESSION["rol"] = $respuesta["rol"];
 
                         /*==================================================================
                         =            Registrar fecha para saber el último login            =
@@ -238,4 +239,77 @@ class Controller_User {
        }
 
     }
+
+    /**
+     * cambiar password
+     */
+
+    static public function ctrChangePass() {
+
+    if(isset($_POST["keyApiU"])) {
+
+        if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ]+$/', $_POST["nuevoPassword"])) {
+
+           $tabla = "users";
+           $item = "keyApiU";
+           $valor = $_POST["keyApiU"];
+           $respuesta = Model_User::mdlListUser($tabla, $item, $valor);
+           
+           if($respuesta["keyApiU"] == $_POST["keyApiU"] && $respuesta["id"] == $_POST["idUser"]) {
+
+                $encriptar = crypt($_POST["nuevoPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+                $datos = array(
+                    "id" => $_POST["idUser"],
+                    "password" => $encriptar,
+                    "first_login" => 1
+                );
+
+                $respuesta = Model_User::mdlUpdatePassword($tabla, $datos);
+
+                if($respuesta == "ok") {
+
+                    echo '<script>
+
+                            Swal.fire({
+                            icon: "success",
+                            title: "CLAVE ACTUALIZADA EXITOSAMENTE",
+                            showClass: {
+                                popup: `
+                                animate__animated
+                                animate__jackInTheBox
+                                animate__faster
+                                `
+                            },
+                            hideClass: {
+                                popup: `
+                                animate__animated
+                                animate__fadeOutDown
+                                animate__faster
+                                `
+                            }
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+
+                                window.location="my-account"
+                            }
+                        });
+                    
+                    </script>';
+
+                }
+
+           } else {
+
+                echo "error en el servidor";
+
+           }
+
+        } else {
+            echo "No puede ir vacío o llevar caracteres especiales";
+        }
+
+    }
+}
+
 }

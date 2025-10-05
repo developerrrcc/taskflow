@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Mi Cuenta</title>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    .tab-btn { cursor:pointer; }
-    .active-tab { border-bottom: 3px solid #2196F3; color:#2196F3 !important; }
-  </style>
-</head>
+
+<style>
+  .tab-btn { cursor:pointer; }
+  .active-tab { border-bottom: 3px solid #2196F3; color:#2196F3 !important; }
+</style>
+
 <body class="w3-light-grey">
 
 <div class="w3-container w3-padding-16">
@@ -41,24 +35,36 @@
       <h3 class="w3-border-bottom w3-padding-8"><i class="fa-solid fa-id-card"></i> Información del Usuario</h3>
       <p><b>Nombre:</b> <?php echo $_SESSION["nombres"] ?></p>
       <p><b>Correo:</b> <?php echo $_SESSION["email"] ?></p>
-      <p><b>Rol:</b> Administrador</p>
+      <p><b>Rol:</b> <?php echo $_SESSION["rol"] ?></p>
       <p><b>Fecha de registro:</b> 2025-09-01</p>
     </div>
   </div>
 
   <!-- CAMBIAR CLAVE -->
+
+  <?php 
+
+    $item = "id";
+    $valor = $respuesta["id"];
+    $responsePass = Controller_User::ctrListUser($item, $valor);
+  
+  ?>
   <div id="clave" class="tab-content" style="display:none">
     <div class="w3-card w3-white w3-padding">
       <h3 class="w3-border-bottom w3-padding-8"><i class="fa-solid fa-key"></i> Cambiar Contraseña</h3>
-      <form class="w3-container">
-        <label>Contraseña actual</label>
-        <input type="password" class="w3-input w3-border w3-round w3-margin-bottom">
-        <label>Nueva contraseña</label>
-        <input type="password" class="w3-input w3-border w3-round w3-margin-bottom">
-        <label>Confirmar nueva contraseña</label>
-        <input type="password" class="w3-input w3-border w3-round w3-margin-bottom">
-        <button class="w3-button w3-dark-grey w3-round"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+      <form method="post" class="w3-container">
+        <label>Nueva Contraseña</label>
+        <input type="password" name="nuevoPassword" class="w3-input w3-border w3-round w3-margin-bottom">
+        <input type="hidden" name="keyApiU" id="keyApiU" value="<?php echo $respuesta["keyApiU"] ?>">
+        <input type="hidden" name="idUser" id="idUser" value="<?php echo $respuesta["id"] ?>">
+        <button type="submit" class="w3-button w3-dark-grey w3-round"><i class="fa-solid fa-floppy-disk"></i> GUARDAR CAMBIOS</button>
       </form>
+      <?php 
+
+        $changePass = new Controller_User();
+        $changePass -> ctrChangePass();
+      
+      ?>
     </div>
   </div>
 
@@ -103,5 +109,3 @@ function openTab(evt, tabName) {
 }
 </script>
 
-</body>
-</html>

@@ -80,4 +80,26 @@ class Model_User {
 
     }
 
+    /**
+     * cambiar password
+     */
+
+    static public function mdlUpdatePassword($tabla, $datos) {
+
+        $stmt = Conexion::conectar()->prepare(
+            "UPDATE $tabla SET password = :password, first_login = :first_login WHERE id = :id"
+        );
+
+        $stmt -> bindParam(":id", $datos["id"], PDO::PARAM_STR);
+        $stmt -> bindParam(":password", $datos["password"], PDO::PARAM_STR);
+        $stmt -> bindParam(":first_login", $datos["first_login"], PDO::PARAM_STR);
+        
+        if($stmt->execute()) {
+            return "ok";
+        } else {
+            print_r(Conexion::conectar()->errorInfo());
+        }
+
+    }
+
 }
